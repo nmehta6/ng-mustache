@@ -4,12 +4,11 @@ angular.module('app').directive('appTitle', function ($compile, mustacheService)
 	return {
 		restrict: 'E',
 		replace: true,
+		templateUrl: 'components/title/title.html',
 		link: (scope, element, attrs) => {
-			mustacheService.render('components/title/title.html', attrs)
-				.then((result) => {
-					element.html(result);
-					$compile(element.contents())(scope);
-				});
+			let result = mustacheService.render('components/title/title.html', attrs)
+			element.html(result)
+			$compile(element.contents())(scope)
 		},
 		scope: {
 			title: '@',

@@ -3,16 +3,9 @@ angular.module('app').factory('mustacheService',
 		// Methods
 		// =======
 		let render = (templateUrl, model={}) => {
-			// compiledTemplate(model)
-			let deferred = $q.defer()
-			let template = $http
-				.get(templateUrl, {cache: $templateCache})
-				.success((template) => {
-					template = '{{=<% %>=}}' + template + '<%={{ }}=%>'
-					deferred.resolve($window.Mustache.render(template, model))
-				})
-
-			return deferred.promise;
+			let template = $templateCache.get(templateUrl)[1]
+			template = '{{=<% %>=}}' + template + '<%={{ }}=%>'
+			return $window.Mustache.render(template, model)
 		}
 
 		// API
