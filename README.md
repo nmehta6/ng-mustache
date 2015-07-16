@@ -1,5 +1,5 @@
 # ng-mustache
-a proof of concept about using mustache.js with angular
+a proof of concept about using mustache with angular
 
 **built with**
 
