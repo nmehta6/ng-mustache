@@ -1,0 +1,14 @@
+{
+  "generator-fatarrow": {
+    "appname": "ng-mustache",
+    "appdescription": "a proof of concept about using mustache.js with angular",
+    "scriptLanguages": [
+      "babel"
+    ],
+    "styleLanguages": [
+      "less"
+    ],
+    "templateLanguages": [],
+    "version": "1.2.0"
+  }
+}
