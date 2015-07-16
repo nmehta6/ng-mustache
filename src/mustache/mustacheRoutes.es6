@@ -5,7 +5,8 @@ angular.module('app').config(
 			.state('mustache', {
 				controller: 'mustacheController',
 				url: '/mustache',
-				templateProvider: (dataService, mustacheService, $q, $templateCache, $timeout) => {
+				// templateUrl: 'mustache/mustache.html',
+				templateProvider: (dataService, mustacheService, $http, $q, $templateCache, $timeout) => {
 					let deferred = $q.defer()
 					let people = dataService
 						.getPeople()
@@ -14,12 +15,11 @@ angular.module('app').config(
 								people
 							}
 							mustacheService
-								.render('mustache/mustache.html', model)
+								.asyncRender('mustache/mustache.html', model)
 								.then((renderedTemplate) => deferred.resolve(renderedTemplate))
 						})
 					return deferred.promise
 				},
-				// templateUrl: 'mustache/template.html',
 				resolve: {
 					people: (dataService) => dataService.getPeople()
 				}
