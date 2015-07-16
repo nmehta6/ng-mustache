@@ -1,6 +1,8 @@
 # ng-mustache
 a proof of concept about using mustache with angular
 
+[![Build Status][build-image]][build-url]
+
 **built with**
 
 ```
@@ -11,3 +13,6 @@ a proof of concept about using mustache with angular
          /_/       |__|  (____  /__| (____  /__|   |__|   \____/ \/\_/
                               \/          \/
 ```
+
+[build-image]:            https://travis-ci.org/nmehta6/ng-mustache.svg?branch=master
+[build-url]:              http://travis-ci.org/nmehta6/ng-mustache
