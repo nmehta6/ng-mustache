@@ -5,23 +5,25 @@ angular.module('app').config(
 			.state('mustache', {
 				controller: 'mustacheController',
 				url: '/mustache',
-				templateProvider: (dataService, mustacheService, $q, $templateCache, $timeout) => {
-					let deferred = $q.defer()
-					let people = dataService
-						.getPeople()
-						.success((people) => {
-							let model = {
-								people
+				templateProvider: (mustacheService, $q, $templateCache, $timeout) => {
+					let model = {
+						people: []
+					}
+
+					for (var i = 0; i < 5000; i++) {
+						model.people.push(
+							{
+								name: faker.name.firstName(),
+								city: faker.address.city()
 							}
-							mustacheService
-								.render('mustache/mustache.html', model)
-								.then((renderedTemplate) => deferred.resolve(renderedTemplate))
-						})
+						)
+					}
+
+					let deferred = $q.defer()
+					mustacheService
+						.render('mustache/mustache.html', model)
+						.then((renderedTemplate) => deferred.resolve(renderedTemplate))
 					return deferred.promise
-				},
-				// templateUrl: 'mustache/template.html',
-				resolve: {
-					people: (dataService) => dataService.getPeople()
 				}
 			})
 	}

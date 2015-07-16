@@ -7,7 +7,19 @@ angular.module('app').config(
 				templateUrl: 'angular/angular.html',
 				url: '/',
 				resolve: {
-					people: (dataService) => dataService.getPeople()
+					people: () => {
+						let people = []
+
+						for (var i = 0; i < 5000; i++) {
+							people.push(
+								{
+									name: faker.name.firstName(),
+									city: faker.address.city()
+								}
+							)
+						}
+						return people
+					}
 				}
 			})
 	}
