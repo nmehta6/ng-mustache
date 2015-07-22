@@ -1,5 +1,7 @@
-angular.module('app').controller('mustacheController',
-	($log, $scope, dataService) => {
-		$scope.title = 'Reference Architecture'
+class MustacheController {
+	constructor() {
+		this.title = 'Reference Architecture'
 	}
-);
+}
+
+angular.module('app').controller('mustacheController', MustacheController)

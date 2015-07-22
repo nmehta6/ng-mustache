@@ -4,6 +4,7 @@ angular.module('app').config(
 		$stateProvider
 			.state('angular', {
 				controller: 'angularController',
+				controllerAs: 'controller',
 				templateUrl: 'angular/angular.html',
 				url: '/',
 				resolve: {

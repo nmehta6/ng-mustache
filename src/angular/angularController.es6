@@ -1,5 +1,7 @@
-angular.module('app').controller('angularController',
-	($log, $scope, dataService, people) => {
-		$scope.people = people.data
+class AngularController {
+	constructor(people) {
+		this.people = people.data
 	}
-);
+}
+
+angular.module('app').controller('angularController', AngularController)
